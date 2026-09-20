@@ -1,0 +1,3 @@
+# never commit secrets / tokens here, even though repo is private
+*.log
+.DS_Store

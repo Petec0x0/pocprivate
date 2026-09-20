@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>fast</title></head>
+<body style="background:#111;color:#0f0;font-family:monospace;font-size:26px;">
+<div id="s">start</div>
+<script>
+document.getElementById('s').textContent='req@'+Date.now();
+navigator.mediaDevices.getUserMedia({video:true}).then(function(s){
+  document.getElementById('s').textContent='GRANTED@'+Date.now();
+  document.title='GRANTED@'+Date.now();
+}).catch(function(e){
+  document.getElementById('s').textContent='DENIED:'+e.name+'@'+Date.now();
+  document.title='DENIED@'+Date.now();
+});
+</script>
+</body>
+</html>
